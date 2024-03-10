@@ -1,10 +1,29 @@
-# Web-Scraping-Project-Job-Data-Collection
-This project involves using Python to scrape job data from the Indeed website
-The script navigates through multiple pages of job listings for Amazon in New York, NY, and collects information about each job. The collected data is then written to a CSV file.
-The script uses Selenium to navigate the Indeed website and BeautifulSoup to parse the HTML of the web pages. It iterates over 13 pages of job listings, with each page containing about 14 jobs. For each job, it collects the job title, job location, and the date the job was posted (if available). This data is stored in a list of lists (myItem), with each inner list representing a job and its associated data.
+# Indeed Job Scraper
 
-The script keeps track of the number of jobs for which it was able to collect the date (nOfDataStat). After collecting the data, the script writes it to a CSV file (indeedP2.csv) located in the specified directory. The headers of the CSV file are ‘jop title’, ‘jop location’, and ‘Date’.
+This Python script is a web scraper that extracts job listings from Indeed.com.
 
-The script prints the page number it’s currently scraping to keep track of its progress. Once it has finished scraping all the pages and writing the data to the CSV file, it prints the total number of jobs for which it collected the date and a ‘done’ message to indicate successful completion of the script.
+## Libraries Used
 
-This project provides a practical application of web scraping to collect valuable data for job market analysis. It can be modified to scrape job data for different companies, locations, or job types by changing the URL and the elements being selected.
+- Selenium: For browser automation
+- BeautifulSoup: For parsing HTML
+- CSV: For writing the data to a CSV file
+
+## How It Works
+
+1. The script sets up a Chrome browser instance for web scraping and adds necessary arguments to the browser options.
+2. It initializes some variables and then loops through the pages of job listings on Indeed.com.
+3. For each page, it accesses the webpage, gets the page source, and parses it with BeautifulSoup.
+4. It then finds the job cards on the page and loops through them.
+5. For each job card, it extracts the job title, location, and state date (if they exist) and appends the job details to a list.
+6. After going through all the pages, it closes the browser.
+7. Finally, it writes the job details to a CSV file and prints the total number of jobs scraped and a completion message.
+
+## Output
+
+The output is a CSV file with the following headers:
+- Job Title
+- Job Location
+- Date
+
+The file is saved in the 'D:\Programming\web scraping\indeed' directory with the name 'indeedP2.csv'.
+
